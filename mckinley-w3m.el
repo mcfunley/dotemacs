@@ -20,7 +20,7 @@
     (when (string-match-p (car u) url)
       (apply (cdr u) url new-window)
       (return-from choose-browser)))
-  (browse-url-default-macosx-browser url new-window))
+  (apply *default-url-handler* url new-window))
 
 (setq browse-url-browser-function 'choose-browser)
 

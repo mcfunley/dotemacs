@@ -19,7 +19,9 @@
 
 (defvar have-w3m 
   ;; Compile w3m --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-  (load-path-safe "/Applications/Emacs.app/Contents/share/emacs/site-lisp/w3m/"))
+  (or 
+   (load-path-safe "/Applications/Emacs.app/Contents/share/emacs/site-lisp/w3m/")
+   (load-path-safe "~/lib/site-lisp/w3m")))
 
 
 ;;; -----------------------------------------------------------------------------
@@ -330,8 +332,8 @@
 ;;; -----------------------------------------------------------------------------
 ;;; w3m
 
-(when have-w3m
-  (require 'mckinley-w3m))
+;(when have-w3m
+;  (require 'mckinley-w3m))
 
 
 ;;; -----------------------------------------------------------------------------

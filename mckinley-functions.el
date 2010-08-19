@@ -7,11 +7,12 @@
     (buffer-string)))
 
 (defun load-path-safe (dir) 
-  (if (file-exists-p dir)
-      (progn
-        (add-to-list 'load-path dir)
-        t)
-    nil))
+  (let ((dir* (expand-file-name dir)))
+    (if (file-exists-p dir*)
+        (progn
+          (add-to-list 'load-path dir*)
+          t)
+      nil)))
 
 (defun urlencode-region ()
   (interactive)
