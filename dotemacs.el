@@ -17,11 +17,8 @@
 
 (require 'webfactional)
 
-(defvar have-w3m 
-  ;; Compile w3m --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
-  (or 
-   (load-path-safe "/Applications/Emacs.app/Contents/share/emacs/site-lisp/w3m/")
-   (load-path-safe "~/lib/site-lisp/w3m")))
+(require 'mckinley-browser)
+
 
 
 ;;; -----------------------------------------------------------------------------
@@ -327,13 +324,6 @@
 
 (add-to-list 'load-path "~/lib/site-lisp/gist")
 (require 'gist)
-
-
-;;; -----------------------------------------------------------------------------
-;;; w3m
-
-;(when have-w3m
-;  (require 'mckinley-w3m))
 
 
 ;;; -----------------------------------------------------------------------------
