@@ -1,5 +1,6 @@
 (eval-when-compile (require 'cl))
 
+
 ;;; -----------------------------------------------------------------------------
 ;;; paths
 (add-to-list 'load-path "~/lib/site-lisp")
@@ -46,6 +47,13 @@
 (setq erc-fill-column 120)
 
 (defcustom etsy-erc-nickname "dan" "")
+
+(setq erc-log-channels-directory "~/.erc/logs")
+(setq erc-save-buffer-on-part nil
+      erc-save-queries-on-quit nil
+      erc-log-write-after-send t
+      erc-log-write-after-insert t)
+(require 'erc-log)
 
 (defun etsy-erc () 
   (interactive)
@@ -215,8 +223,13 @@
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
 ;;; -----------------------------------------------------------------------------
-;;; server
+;;; server / daemon stuff
+
 (server-start)
+
+; If running as --daemon, prevent killing the process via muscle memory. 
+(when (daemonp)
+  (global-set-key (kbd "C-x C-c") 'delete-frame))
 
 
 ;;; -----------------------------------------------------------------------------
