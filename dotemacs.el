@@ -433,8 +433,6 @@
       (show-paren-match-face ((t (:background "#7587a5"))))
 	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
 
-(custom-set-faces '(default ((t (:family "Inconsolata" :height 110 
-                                         :background "#242424")))))
 (color-theme-twilight)
 
 (message "done")
