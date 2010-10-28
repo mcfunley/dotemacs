@@ -55,6 +55,11 @@
       erc-log-write-after-insert t)
 (require 'erc-log)
 
+(and
+ (require 'erc-highlight-nicknames)
+ (add-to-list 'erc-modules 'highlight-nicknames)
+ (erc-update-modules))
+
 (defun etsy-erc () 
   (interactive)
   (erc :server etsy-irc-server :nick etsy-erc-nickname
@@ -324,6 +329,7 @@
 (pgconnector :dev-showcase)
 (pgconnector :dev-views)
 (pgconnector :dev-storque)
+(pgconnector :prod-master)
 
 (defun sql-mode-defaults () 
   (toggle-truncate-lines 1))
