@@ -60,6 +60,8 @@
  (add-to-list 'erc-modules 'highlight-nicknames)
  (erc-update-modules))
 
+(setq erc-keywords '("\\bdmckinley\\b"))
+
 (defun etsy-erc () 
   (interactive)
   (erc :server etsy-irc-server :nick etsy-erc-nickname
