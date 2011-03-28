@@ -39,8 +39,9 @@
 ;;; ERC
 (require 'erc)
 (setq erc-autojoin-channels-alist
-      `((,etsy-irc-server "#nagios" "#sysops" "#lists" "#USA" 
-         "#hardware" "#etsy")
+      `((,etsy-irc-server "#nagios" "#sysops" "#push" "#USA" 
+         "#hardware" "#etsy" "#warroom" "#coreplatform" "#wranglers"
+         "#forums")
         ("irc.freenode.net" "#mongodb" "#scala")))
 
 (setq erc-join-buffer 'bury)
@@ -441,6 +442,7 @@
       (show-paren-match-face ((t (:background "#7587a5"))))
 	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
 
-(color-theme-twilight)
+;(color-theme-twilight)
+(color-theme-tty-dar)
 
 (message "done")
