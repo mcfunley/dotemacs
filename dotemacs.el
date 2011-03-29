@@ -63,6 +63,8 @@
 
 (setq erc-keywords '("\\bdmckinley\\b"))
 
+(setq erc-hide-list `("JOIN" "PART" "QUIT"))
+
 (defun etsy-erc () 
   (interactive)
   (erc :server etsy-irc-server :nick etsy-erc-nickname
