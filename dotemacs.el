@@ -444,11 +444,10 @@
       (show-paren-match-face ((t (:background "#7587a5"))))
 	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
 
-<<<<<<< HEAD
-(color-theme-twilight)
-=======
 ;(color-theme-twilight)
-(color-theme-tty-dar)
->>>>>>> 389ffdf557c43b5dd3d448abdea3fb39a1480adc
+;(color-theme-tty-dark)
+
+(when (fboundp 'mck-post-init)
+  (mck-post-init))
 
 (message "done")
