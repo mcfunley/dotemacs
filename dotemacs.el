@@ -161,27 +161,27 @@
   (column-marker-1 81)
   (setq indent-tabs-mode nil)
   (show-parens-in-buffer))
-  
-(add-hook 'python-mode-hook 'progmode-defaults)
-(add-hook 'emacs-lisp-mode-hook 'progmode-defaults)
-(add-hook 'lisp-mode-hook 'progmode-defaults)
-(add-hook 'php-mode-hook 'progmode-defaults)
-(add-hook 'c-mode-hook 'progmode-defaults)
 
-(add-hook 'html-mode-hook 'progmode-defaults)
+(dolist (h '(python-mode-hook 
+             emacs-lisp-mode-hook
+             lisp-mode-hook
+             php-mode-hook
+             c-mode-hook
+             html-mode-hook
+             actionscript-mode-hook
+             haskell-mode-hook
+             ruby-mode-hook
+             scala-mode-hook
+             java-mode-hook))
+  (add-hook h 'progmode-defaults))
+
+
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
-
-(add-hook 'actionscript-mode-hook 'progmode-defaults)
 (add-to-list 'auto-mode-alist (cons "\\.as\\'" 'actionscript-mode))
-
 
 (load "~/lib/site-lisp/haskell-mode/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'progmode-defaults)
-
-(add-hook 'scala-mode-hook 'progmode-defaults)
-(add-hook 'java-mode-hook 'progmode-defaults)
 
 
 
@@ -433,8 +433,6 @@
       (show-paren-match-face ((t (:background "#7587a5"))))
 	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
 
-(custom-set-faces '(default ((t (:family "Inconsolata" :height 110 
-                                         :background "#242424")))))
 (color-theme-twilight)
 
 (message "done")
