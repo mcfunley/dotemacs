@@ -14,3 +14,5 @@
 (global-set-key [8805] 'bm-next)
 (global-set-key [960] 'gist-buffer-private)
 
+(defun mck-post-init ()
+  (color-theme-tty-dark))
