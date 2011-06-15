@@ -1,6 +1,5 @@
 (eval-when-compile (require 'cl))
 
-
 ;;; -----------------------------------------------------------------------------
 ;;; paths
 (add-to-list 'load-path "~/lib/site-lisp")
@@ -41,7 +40,7 @@
 (setq erc-autojoin-channels-alist
       `((,etsy-irc-server "#nagios" "#sysops" "#push" "#USA" 
          "#hardware" "#etsy" "#warroom" "#coreplatform" "#wranglers"
-         "#forums")
+         "#forums" "#explorers")
         ("irc.freenode.net" "#mongodb" "#scala")))
 
 (setq erc-join-buffer 'bury)
@@ -197,14 +196,16 @@
 
 ;;; -----------------------------------------------------------------------------
 ;;; appearance / global interface
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;; stfu 
 (setq visible-bell t)
 
 (setq inhibit-startup-message t)
-
 
 ;;; -----------------------------------------------------------------------------
 ;;; grep mode
@@ -241,15 +242,15 @@
 (when (daemonp)
   (global-set-key (kbd "C-x C-c") 'delete-frame))
 
-
 ;;; -----------------------------------------------------------------------------
 ;;; bm.el
 
-(require 'bm)
-(global-set-key (kbd "s-b") 'bm-toggle)
-(global-set-key (kbd "s-B") 'bm-show-all)
-(global-set-key (kbd "s-,") 'bm-previous)
-(global-set-key (kbd "s-.") 'bm-next)
+(when (fboundp 'define-fringe-bitmap) 
+  (require 'bm)
+  (global-set-key (kbd "s-b") 'bm-toggle)
+  (global-set-key (kbd "s-B") 'bm-show-all)
+  (global-set-key (kbd "s-,") 'bm-previous)
+  (global-set-key (kbd "s-.") 'bm-next))
 
 
 ;;; -----------------------------------------------------------------------------
@@ -277,6 +278,10 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;; do not delete trailing whitespace all over the place on save and fuck up 
+;; my diffs
+(setq js2-cleanup-whitespace nil)
+
 (defun js-formatting-defaults ()
   (interactive)
   (setq js2-basic-offset 4)
@@ -284,6 +289,7 @@
 
 (add-hook 'js2-mode-hook 'progmode-defaults)
 (add-hook 'js2-mode-hook 'js-formatting-defaults)
+
 
 
 ;;; -----------------------------------------------------------------------------
@@ -349,12 +355,6 @@
 (add-to-list 'load-path "~/lib/site-lisp/gist")
 (require 'gist)
 
-
-;;; -----------------------------------------------------------------------------
-;;; gist
-
-(add-to-list 'load-path "~/lib/site-lisp/gist.el")
-(require 'gist)
 ; overwrites ns-print-buffer
 (global-set-key (kbd "s-p") 'gist-buffer-private)
 
@@ -445,6 +445,6 @@
 	  (zmacs-region ((t (:background "snow" :foreground "blue")))))))
 
 ;(color-theme-twilight)
-(color-theme-tty-dar)
+(color-theme-tty-dark)
 
 (message "done")
