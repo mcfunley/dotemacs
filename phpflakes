@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e;
+
+if [ 2 != $# ]; then
+    echo "usage: $0 php-script ruleset"
+    exit 1;
+fi
+
+script=$1;
+ruleset=$2
+
+# php syntax checking
+ php -lf $script 
+
+# php code sniffer
+phpcs --report=emacs --standard=$ruleset  $script 
