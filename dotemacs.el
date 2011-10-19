@@ -43,7 +43,8 @@
 (setq erc-autojoin-channels-alist
       `((,etsy-irc-server "#nagios" "#sysops" "#push" "#USA" 
          "#hardware" "#etsy" "#warroom" "#coreplatform" "#wranglers"
-         "#forums" "#explorers")
+         "#forums" "#explorers" "#stranglers" "#ptsd" "#searchads"
+         "#hadoop")
         ("irc.freenode.net" "#mongodb" "#scala")))
 
 (setq erc-join-buffer 'bury)
