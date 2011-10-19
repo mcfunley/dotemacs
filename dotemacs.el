@@ -6,7 +6,10 @@
 (add-to-list 'load-path "~/lib/site-lisp/personal")
 (add-to-list 'exec-path "/usr/local/bin")
 
-(add-to-list 'load-path "~/scala/misc/scala-tool-support/emacs")
+(defvar have-scala (file-exists-p (expand-file-name "~/scala")))
+
+(when have-scala
+  (add-to-list 'load-path "~/scala/misc/scala-tool-support/emacs"))
 
 ;;; -----------------------------------------------------------------------------
 ;;; my elisp
@@ -139,7 +142,7 @@
 (require 'python)
 (require 'php-mode)
 (require 'actionscript-mode)
-(require 'scala-mode-auto)
+(when have-scala (require 'scala-mode-auto))
 
 
 (setq indent-tabs-mode nil)
