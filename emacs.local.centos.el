@@ -18,4 +18,4 @@
   (color-theme-tty-dark))
 
 ;; php flymake (specific to VM)
-(require 'php-flymake)
+;(require 'php-flymake)

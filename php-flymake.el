@@ -9,7 +9,7 @@
   "Path to the phpflakes script")
 
 (defvar phpflakes-code-sniffer-ruleset 
-  "/var/etsy/current/CodeSniffer/golden-ruleset.xml"
+  "/var/etsy/current/CodeSniffer/staging-ruleset.xml"
   "Path the rule set file to give to phpcs")
 
 (defun flymake-phpflakes-init ()
