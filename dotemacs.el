@@ -11,6 +11,14 @@
 (when have-scala
   (add-to-list 'load-path "~/scala/misc/scala-tool-support/emacs"))
 
+(defvar have-evernote 
+  (file-exists-p (expand-file-name "~/lib/site-lisp/evernote")))
+
+(when have-evernote
+  (add-to-list 'load-path "~/lib/site-lisp/evernote")
+  (require 'evernote-mode))
+
+
 ;;; -----------------------------------------------------------------------------
 ;;; my elisp
 
@@ -108,8 +116,16 @@
                ("py" (mode . python-mode))
                ("shell" (mode . shell-mode))
                ("elisp" (mode . emacs-lisp-mode))
+               ("evernote" (or (mode . evernote-mode)
+                               (name . "^\\*ENB.*")
+                               (name . ".*[Ee]vernote.*")))
+               ("js" (mode . js2-mode))
+               ("sql" (mode . sql-mode))
+               ("smarty" (name . ".*tpl$"))
                ("emacs" (or (name . "^\\*scratch\\*$")
+                            (mode . ielm)
                             (name . "^\\*Messages\\*$")))))))
+
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
