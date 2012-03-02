@@ -205,6 +205,10 @@
   (add-hook h 'progmode-defaults))
 
 
+;;;; override tab width for java files
+(add-hook 'java-mode-hook (lambda () (setq tab-width 2)))
+
+
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'html-mode))
 (add-to-list 'auto-mode-alist (cons "\\.as\\'" 'actionscript-mode))
 
