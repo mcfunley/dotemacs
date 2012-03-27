@@ -58,7 +58,7 @@
 (setq erc-join-buffer 'bury)
 (setq erc-fill-column 120)
 
-(defcustom etsy-erc-nickname "dan" "")
+(defcustom etsy-erc-nickname "dmckinley" "")
 
 (setq erc-log-channels-directory "~/.erc/logs")
 (setq erc-save-buffer-on-part nil
@@ -78,8 +78,9 @@
 
 (defun etsy-erc () 
   (interactive)
-  (erc :server etsy-irc-server :nick etsy-erc-nickname
-       :password etsy-irc-password))
+  (erc-ssl :server etsy-irc-server :nick etsy-erc-nickname
+           :port etsy-irc-port
+           :password etsy-irc-password))
 
 (defun etsy-restart-erc ()
   (interactive)
